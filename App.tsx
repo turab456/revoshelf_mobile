@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { StatusBar as RNStatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AuthProvider } from './src/context/AuthContext';
+import { WishlistProvider } from './src/context/WishlistContext';
+import { ToastProvider } from './src/context/ToastContext';
+import { RootNavigator } from './src/navigation/RootNavigator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <AuthProvider>
+        <WishlistProvider>
+          <ToastProvider>
+            <RNStatusBar barStyle="dark-content" backgroundColor="#FFFFFF" translucent />
+            <ExpoStatusBar style="dark" />
+            <RootNavigator />
+          </ToastProvider>
+        </WishlistProvider>
+      </AuthProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

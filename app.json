@@ -1,13 +1,19 @@
 {
   "expo": {
-    "name": "campus_mobile",
-    "slug": "campus_mobile",
+    "name": "RevoShelf",
+    "slug": "revoshelf",
+    "scheme": "revoshelf",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#FFFFFF",
+      "barStyle": "dark-content",
+      "translucent": true
     },
     "android": {
       "adaptiveIcon": {
@@ -20,6 +26,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-image",
+      "expo-web-browser"
+    ]
   }
 }
